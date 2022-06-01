@@ -10,3 +10,13 @@
 #beeramid(1500, 2)# 12
 #beeramid(5000, 3)# 16
 
+# Вычисляем по формуле Квадратного пирамидального числа (взял из википедии)
+def SqPyramid(n): return (2*n**3+3*n**2+n)/6
+
+def beeramid(ref_bonus,can_cost): # считаем "слои" пирамиды
+    n = 0
+    while SqPyramid(n + 1)< (ref_bonus / can_cost): n += 1
+    return n
+
+print(beeramid(1500,2))
+print(beeramid(5000,3))

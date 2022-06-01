@@ -14,8 +14,7 @@ with open(my_filename,'w') as f:
 
 my_list = []
 with open(my_filename,'r') as f:
-    my_list = f.readlines()
-    my_list = list(map(int, my_list))
+    my_list = list(map(int, f.readlines()))
     my_list.sort()
 
 with open(my_filename,'w') as f:

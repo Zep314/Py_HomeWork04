@@ -8,13 +8,11 @@
 def some_sequence(n,local_list): # n - с какой позиции списка начинаем искать последовательность
     if n < 0 or n > len(local_list)-1: return [] # защита от неправильного ввода
     ret = [local_list[n]]
-    
     j = n
     for i in range(n,len(local_list)):
         if local_list[i] > local_list[j]:
             ret.append(local_list[i])
             j = i
-    
     return ret
 
 my_list = [1, 5, 2, 3, 4, 6, 1, 7]

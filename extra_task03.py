@@ -8,5 +8,18 @@
 # Поэтому, имя COLIN получает 938 × 53 = 49714 очков.
 
 # Какова сумма очков имен в файле?
+            
+alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+abc_cost = {alphabet[i]:i+1 for i in range(len(alphabet))}
 
+# Вычисляем "стоимость" одного слова
+def CostWord(local_str): return sum([abc_cost[local_str[i]] for i in range(len(local_str))])
 
+# Читаем файл и суммируем произведения стоимости слов на их позицию в файле
+def GetMyScores(file_name):
+    with open(file_name,'r') as f:
+        english_names = f.read().replace('"','').split(',') # парсинг файла
+        return sum([(i+1)*CostWord(english_names[i]) for i in range(len(english_names))])
+    return -1 # это если файл не открылся
+
+print(GetMyScores('english_names.txt'))

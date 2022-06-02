@@ -36,10 +36,10 @@ def some_sequence2(local_list):
     L = 0  # текущий максимум длины подпоследовательности
     P = [] # индекс предшествующего символа для наидлиннейшей возрастающей подпоследовательности, оканчивающейся в i-й позиции
     M = [0 for _ in range(len(local_list)+1)] # индексы min по величине из последних элементов local_list на текущем шаге
-    for i in range(0,len(local_list)):
+    for i in range(0,len(local_list)): # используем бинарный поиск по массиву M
         lo = 1
         hi = L
-        while lo <= hi:
+        while lo <= hi: 
             mid = ceil((lo+hi)/2) # округление в большую сторону
             if local_list[M[mid]] < local_list[i]:
                 lo = mid + 1
@@ -64,8 +64,8 @@ def some_sequence2(local_list):
 my_list = [2, 8, 5, 9, 12, 6]
 print(my_list)
 print(some_sequence2(my_list))
-#print(some_sequence(0,my_list))
-# print('=============')
-# my_list = [5, 2, 3, 4, 6, 1, 7]
-# print(my_list)
-# print(some_sequence2(my_list))
+
+print('=============')
+my_list = [5, 2, 3, 4, 6, 1, 7]
+print(my_list)
+print(some_sequence2(my_list))

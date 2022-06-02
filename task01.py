@@ -10,7 +10,7 @@ def some_sequence(n,local_list): # n - с какой позиции списка
     ret = [local_list[n]]
     j = n
     for i in range(n,len(local_list)):
-        if local_list[i] > local_list[j]:
+        if local_list[i] > local_list[j]: # опираемся на меньший, и если текущий больше - то запоминаем его
             ret.append(local_list[i])
             j = i
     return ret
